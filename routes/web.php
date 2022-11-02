@@ -18,3 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('data',[ApiController::class, 'index']);
+
+Route::group(['prefix' => 'v1'], function (){
+
+
+    Route::post('/create/data',[DataController::class, 'create']);
+    Route::get('/show/data',[DataController::class, 'show']);
+
+});
